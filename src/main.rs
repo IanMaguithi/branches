@@ -12,16 +12,20 @@ fn main() {
 
     // Convert string to number using shadowing and trim() to remove whitespace
     let number: i32 = number.trim().parse().expect("Please type a number!");
-    check_number(number);
+    let condition: bool = check_number(number);
     divisibility_test(number);
+
+    let_if_statement(condition);
 }
 
 // handling if condition
-fn check_number(number: i32) {
+fn check_number(number: i32) -> bool {
     if number < 5 {
         println!("Condition is true");
+        true
     } else {
         println!("Condition is false");
+        false
     }
 }
 
@@ -37,4 +41,10 @@ fn divisibility_test(number: i32) {
     } else {
         println!("Number is not divisible by 4, 3 or 2");
     }
+}
+
+//? Using if in a let statement
+fn let_if_statement(condition: bool) {
+    let number = if condition { 5 } else { 6 };
+    println!("The value of number is: {}", number);
 }
